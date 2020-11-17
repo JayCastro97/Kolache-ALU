@@ -22,23 +22,48 @@ or O1 (c_out, w1, w3);
 endmodule
 
 module Adder_subtractor (
-input [4:0] a, b, // A and B input
+input [15:0] a, b, // A and B input
 input M, // mode input
-output [3:0] sum,
+output [15:0] sum,
 output c_out
 );
 
-wire [3:0] x;
-wire c1, c2, c3;
+wire [15:0] x;
+wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16;
 
 xor G0 (x[0], b[0], M);
 xor G1 (x[1], b[1], M);
 xor G2 (x[2], b[2], M);
 xor G3 (x[3], b[3], M);
+xor G4 (x[4], b[4], M);
+xor G5 (x[5], b[5], M);
+xor G6 (x[6], b[6], M);
+xor G7 (x[7], b[7], M);
+xor G8 (x[8], b[8], M);
+xor G9 (x[9], b[9], M);
+xor G10 (x[10], b[10], M);
+xor G11 (x[11], b[11], M);
+xor G12 (x[12], b[12], M);
+xor G13 (x[13], b[13], M);
+xor G14 (x[14], b[14], M);
+xor G15 (x[15], b[15], M);
+
 
 FA m0 (.a(a[0]), .b(x[0]), .c_in(M), .sum(sum[0]), .c_out(c1));
 FA m1 (.a(a[1]), .b(x[1]), .c_in(c1), .sum(sum[1]), .c_out(c2));
 FA m2 (.a(a[2]), .b(x[2]), .c_in(c2), .sum(sum[2]), .c_out(c3));
-FA m3 (.a(a[3]), .b(x[3]), .c_in(c3), .sum(sum[3]), .c_out(c_out));
+FA m3 (.a(a[3]), .b(x[3]), .c_in(c3), .sum(sum[3]), .c_out(c4));
+FA m4 (.a(a[4]), .b(x[4]), .c_in(c4), .sum(sum[4]), .c_out(c5));
+FA m5 (.a(a[5]), .b(x[5]), .c_in(c5), .sum(sum[5]), .c_out(c6));
+FA m6 (.a(a[6]), .b(x[6]), .c_in(c6), .sum(sum[6]), .c_out(c7));
+FA m7 (.a(a[7]), .b(x[7]), .c_in(c7), .sum(sum[7]), .c_out(c8));
+FA m4 (.a(a[8]), .b(x[8]), .c_in(c8), .sum(sum[8]), .c_out(c9));
+FA m5 (.a(a[9]), .b(x[9]), .c_in(c9), .sum(sum[9]), .c_out(c10));
+FA m6 (.a(a[10]), .b(x[10]), .c_in(c10), .sum(sum[10]), .c_out(c11));
+FA m7 (.a(a[11]), .b(x[11]), .c_in(c11), .sum(sum[11]), .c_out(c12));
+FA m4 (.a(a[12]), .b(x[12]), .c_in(c12), .sum(sum[12]), .c_out(c13));
+FA m5 (.a(a[13]), .b(x[13]), .c_in(c13), .sum(sum[13]), .c_out(c14));
+FA m6 (.a(a[14]), .b(x[14]), .c_in(c14), .sum(sum[14]), .c_out(c15));
+FA m7 (.a(a[15]), .b(x[15]), .c_in(c15), .sum(sum[15]), .c_out(c_out));
 
 endmodule
