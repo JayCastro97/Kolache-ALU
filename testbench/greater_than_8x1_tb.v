@@ -1,10 +1,10 @@
 `timescale 1ns/1ns
 `include "../32_bit_greater_than.v"
 
-module greater_than_2x1_tb;
-reg  [1:0] a, b;
+module greater_than_8x1_tb;
+reg  [3:0] a, b;
 wire Output;
-GT_2x1 gt_2b (.a(a), .b(b), .Output(Output));
+GT_4x1 gt_2b (.a(a), .b(b), .Output(Output));
 
 initial begin
 $dumpfile("gt_2x1.vcd");

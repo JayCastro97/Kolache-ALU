@@ -4,7 +4,7 @@
 module greater_than_testbench;
 reg  a, b;
 wire Output;
-GT pass (.a(a), .b(b), .Output(Output));
+GT_32b pass (.a(a), .b(b), .Output(Output));
 
 initial begin
 $monitor("a = %b b = %b  Output = %b " ,a, b, Output); 
