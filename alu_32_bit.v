@@ -1,3 +1,22 @@
+/*
+   Team: Kolache
+   Software: iverilog
+   Source: http://iverilog.icarus.com/
+ */
+// CONSTANTS                    | decimal:
+//====================================================================
+`define NOOP			4'b0000 //0
+`define RESET			4'b0001 //1
+`define OR 		        4'b0010 //3
+`define AND         	4'b0101 //5
+`define ADD  			4'b0110 //6
+`define NOT      		4'b0111 //7
+`define SUB	 		    4'b1000 //8 
+`define EQUAL           4'b1100 //9
+`define GREATER_THAN    4'b1101 //13
+`define ERROR           4'b1111 //15
+//====================================================================
+
 module alu_32_bit(result,zero,a,b,opCode);
 
 output [31:0] result;
