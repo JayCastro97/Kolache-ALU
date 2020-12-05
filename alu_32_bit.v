@@ -24,6 +24,7 @@
 `include "32_bit_greater_than.v"
 `include "32_bit_equal.v"
 `include "32_bit_adder_subtractor.v"
+`include "32_bit_less_than.v"
 
 module alu_32_bit(result,zero,a,b,opCode);
 
@@ -56,13 +57,12 @@ OR_32b op3(a,b,s3); //opcode 0011
 AND_32b op5(a,b,s5); //opcode 0101
 Adder_subtractor op6(a,b,1'b0,s6,c_out); //opcode 0110
 Adder_subtractor op8(a,b,1'b1,s8,c_out); //opcode 1000 
-equal op9(a,b,s12); //opcode 1100
+equal op12(a,b,s12); //opcode 1100
 Greater_than op13(a,b,s13); //opcode 1101
+LT_32B op14(a,b,s14);
 
 
-//NOT Call
 //Less than Call
-//ADD & SUB Call
 
 MUX_16_1_V2 mux1(result[0],s0[0],s1[0],s2[0],s3[0],s4[0],s5[0],s6[0],s7[0],s8[0],s9[0],s10[0],s11[0],s12,s13,s14,s15[0],opCode),
 			mux2(result[1],s0[1],s1[1],s2[1],s3[1],s4[1],s5[1],s6[1],s7[1],s8[1],s9[1],s10[1],s11[1],s12,s13,s14,s15[1],opCode),
